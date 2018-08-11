@@ -18,8 +18,11 @@ pip install -r requirement.txt
 pip install nose
 ```
 
-### Django Structure Setup
+#### Django Structure Setup
 ``` sh
 django-admin startproject nyit .
 django-admin startapp budgets
 ```
+
+### Example Polls App
+https://docs.djangoproject.com/en/2.1/intro/
