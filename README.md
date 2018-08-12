@@ -20,6 +20,7 @@ pip install -r requirement.txt
 #### Django Structure Setup
 ``` sh
 django-admin startproject nyit .
+cd nyit
 django-admin startapp budgets
 ```
 

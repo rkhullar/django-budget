@@ -46,4 +46,3 @@ def vote(request, question_id):
         selected_choice = get_object_or_404(Choice, pk=choice_id)
         selected_choice.vote()
         return HttpResponseRedirect(reverse('polls:results', args=(question_id,)))
-

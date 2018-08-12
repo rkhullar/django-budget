@@ -10,17 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+from pathlib import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / ...
+BASE_DIR = Path(__file__).parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^&*#^eay!63)_v=^nu(^k*+bo$wamlmet^9j%%!7w%%&m*2h_$'
+SECRET_KEY = 'x)hx@ao7s_oq6zo(r3x-qu7+)rbmnjex$qq3lcy@dqr+a(d-2y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nyit.polls.apps.PollsConfig',
+    'nyit.budgets.apps.BudgetsConfig',
 ]
 
 MIDDLEWARE = [
@@ -52,12 +53,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'nyit.urls'
 
-print(BASE_DIR)
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nyit',
         'USER': 'nyit',
-        'PASSWORD':'1',
+        'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
     }
