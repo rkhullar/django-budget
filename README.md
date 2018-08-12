@@ -15,11 +15,18 @@ python -m venv venv
 . venv/bin/activate
 pip install -U pip setuptools
 pip install -r requirement.txt
-pip install nose
 ```
 
-### Django Structure Setup
+#### Django Structure Setup
 ``` sh
 django-admin startproject nyit .
 django-admin startapp budgets
 ```
+
+#### Running Tests
+``` sh
+python manage.py test {{app}}
+```
+
+### Example Polls App
+https://docs.djangoproject.com/en/2.1/intro/
