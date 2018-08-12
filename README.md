@@ -29,5 +29,6 @@ django-admin startapp budgets
 python manage.py test {{app}}
 ```
 
-### Example Polls App
-https://docs.djangoproject.com/en/2.1/intro/
+### Resources
+- https://docs.djangoproject.com/en/2.1/intro/
+- http://www.django-rest-framework.org/tutorial/quickstart/
