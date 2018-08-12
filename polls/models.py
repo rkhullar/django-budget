@@ -1,5 +1,5 @@
 from django.db.models import CharField, DateTimeField, IntegerField, ForeignKey
-from django.db.models import Model
+from django.db.models import Model, F
 from django.db import models
 
 from django.utils import timezone
@@ -24,3 +24,7 @@ class Choice(Model):
 
     def __str__(self):
         return self.choice_text
+
+    def vote(self):
+        self.votes = F('votes') + 1
+        self.save()
