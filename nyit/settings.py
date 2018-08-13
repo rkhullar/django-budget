@@ -29,7 +29,6 @@ DEBUG = app_env != 'prod'
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
