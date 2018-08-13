@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / ...
 BASE_DIR = Path(__file__).parent
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).parent
 SECRET_KEY = 'x)hx@ao7s_oq6zo(r3x-qu7+)rbmnjex$qq3lcy@dqr+a(d-2y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+app_env = os.environ.get('APP_ENV', 'dev').lower()  # options are dev, test, and prod
+DEBUG = app_env != 'prod'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,11 +83,11 @@ WSGI_APPLICATION = 'nyit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nyit',
-        'USER': 'nyit',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'NAME': os.environ.get('DATABASE_NAME', 'nyit'),  # TODO: be brave and remove defaults
+        'USER': os.environ.get('DATABASE_USER', 'nyit'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '1'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': int(os.environ.get('DATABASE_PORT', 5432))
     }
 }
 
