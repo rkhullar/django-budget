@@ -6,4 +6,4 @@ COPY manage.py .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY nyit nyit
-CMD ["python", "manage.py", "runserver"]
+RUN ["python", "manage.py", "runserver"]
