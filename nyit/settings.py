@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).parent
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x)hx@ao7s_oq6zo(r3x-qu7+)rbmnjex$qq3lcy@dqr+a(d-2y'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 app_env = os.environ.get('APP_ENV', 'dev').lower()  # options are dev, test, and prod
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'nyit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME', 'nyit'),  # TODO: be brave and remove defaults
-        'USER': os.environ.get('DATABASE_USER', 'nyit'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '1'),
-        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
         'PORT': int(os.environ.get('DATABASE_PORT', 5432))
     }
 }
