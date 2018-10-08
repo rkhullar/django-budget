@@ -29,4 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('polls/', include('nyit.polls.urls')),
+    path('budgets/', include('nyit.budgets.urls')),
 ]
