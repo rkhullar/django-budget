@@ -6,4 +6,4 @@ ADD manage.py .
 ADD requirements.txt .
 RUN pip install -r requirements.txt
 ADD nyit nyit
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
